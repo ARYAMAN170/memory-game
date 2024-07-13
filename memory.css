@@ -1,0 +1,178 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url('brown.png');
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 0.5fr;
+    gap:1rem;
+    padding:20px;
+    padding-bottom: 0px;
+    border-radius: 15px;
+    background-color: #594545;
+    color:black;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+
+    
+}
+
+.card
+{
+    width: 15vmin;
+    height: 15vmin;
+    perspective: 1000px;
+    margin:1fr;
+    align-self: center;
+    justify-self: center;
+
+}
+.card-front,.card-back{
+    display:flex;
+    height:100%;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    border-style: solid;
+    font-size: 1.5rem;
+    color: #FFF8EA;
+    font-weight:900;
+    border-width: 4px;
+    border-color:transparent;
+    background-color: #9E7676;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 600ms;
+    border:10px;
+    box-shadow: 3px 3px 10px black;
+    
+}
+.card-back{
+    transform:rotateY(180deg)
+}
+.card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(360deg);
+}
+
+.active
+{
+    background-color: #dea8a8;
+}
+/* .card-back,.card-front:active{
+    background-color: bisque;
+} */
+/* @keyframes example {
+    from {background-color: #dea8a8;color:#dea8a8;}
+    to {background-color: rgb(35, 23, 23);color:#dea8a8;}
+  }  */
+button{
+    width: 80px;
+    height:40px;
+    background-color: #583a3a;
+    color: #FFF8EA;;
+    border-radius: 50px;
+    font-weight:bold ;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    box-shadow: 3px 3px 10px black;
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    grid-column: 2;
+}
+button:hover{
+    animation-duration: 50ms;
+    background-color: rgb(35, 23, 23);
+}
+.playground{display: none;
+    height:auto;
+    width:auto;
+    
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap:1rem;
+    background-color: #594545;
+    border: solid 2px #594545;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px;}
+
+
+.playcard
+{
+    width: 15vmin;
+    height: 15vmin;
+    perspective: 1000px;
+    margin:1fr;
+    align-self: center;
+    justify-self: center;
+}
+.playcard-front,.playcard-back{
+    display:flex;
+    height:100%;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    border-style: solid;
+    color: #FFF8EA;
+    font-weight: 700;
+    font-size: 3rem;
+    border-width: 4px;
+    border-color:transparent;
+    background-color: #9E7676;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 600ms;
+    border:10px;
+    cursor: pointer;
+    transform: none;
+    box-shadow: 3px 3px 10px black;
+    
+}
+.playcard-back{
+    font-size: 4rem;
+    font-weight: 900;
+    transform:rotateY(180deg)
+}
+.playcard-back:hover
+{
+    animation: glow 1s ease-in-out infinite; /* Glow animation */
+    color: #ffffff;
+}
+.playcard-front {
+    transform: none;
+}
+
+.playcard-back {
+    transform: none;
+}
+
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255,255,255,0.8); /* White glow */
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255,255,255,0.9); /* Larger glow */
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255,255,255,1); /* White glow */
+    }
+}
