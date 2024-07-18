@@ -38,7 +38,10 @@ function start()
     {
     card.addEventListener('click',
         function()
-        {   const plays = card.parentElement;
+
+        {   if(active.length<2)
+        {
+            const plays = card.parentElement;
             plays.querySelector('.playcard-back').style.transform=`rotateY(180deg)`;
             plays.querySelector('.playcard-front').style.transform=`rotateY(360deg)`;
             
@@ -46,7 +49,7 @@ function start()
             plays.querySelector('.playcard-back').classList.add(`act`);
             plays.querySelector('.playcard-front').classList.add(`act`);
         if (active.length==2)
-        {   setTimeout(function() {
+        {   
             if(active[0]==active[1])
             {
 
@@ -57,30 +60,32 @@ function start()
                     if (pla.querySelector('.playcard-back').classList.contains('act')) {
                         pla.querySelector('.playcard-back').classList.remove(`act`);
                         pla.querySelector('.playcard-front').classList.remove(`act`);
-                        active.length=0;
+                        active.splice(0);
+                        active.splice(1);
                         console.log('class removed same')
                         }})
             }
             else
-            {   
+            {   setTimeout(function() { playc.forEach
+                (
+                function(card)
+                {      const pla = card.parentElement;
+                    if (pla.querySelector('.playcard-back').classList.contains('act')) {
+                        pla.querySelector('.playcard-back').style.transform = 'rotateY(0deg)';
+                        pla.querySelector('.playcard-front').style.transform = 'rotateY(180deg)';
+                        pla.querySelector('.playcard-back').classList.remove(`act`);
+                        pla.querySelector('.playcard-front').classList.remove(`act`);
+                        console.log('class removed diff')
+                        }})
+            
+                        active.splice(0);
+                        active.splice(1);},1000)
                 
-                    playc.forEach
-                    (
-                    function(card)
-                    {      const pla = card.parentElement;
-                        if (pla.querySelector('.playcard-back').classList.contains('act')) {
-                            pla.querySelector('.playcard-back').style.transform = 'rotateY(0deg)';
-                            pla.querySelector('.playcard-front').style.transform = 'rotateY(180deg)';
-                            pla.querySelector('.playcard-back').classList.remove(`act`);
-                            pla.querySelector('.playcard-front').classList.remove(`act`);
-                            console.log('class removed diff')
-                            }})
-                
-                active.length=0;
+                    
             }
-        },1000 )}
-        console.log(active);
     }
+        console.log(active);
+    }}
             
     );
 })
@@ -98,11 +103,19 @@ function playground(rows,columns)
             mainobjects.push(shuffledDailyObjects[i]);
     };
     const final = _.shuffle(mainobjects);
-    for(i =0;i<tiles;i++){
-        play.innerHTML += `<div class="playcard" >
+    if(tiles==4){   for(i =0;i<tiles;i++){
+        play.innerHTML += `<div class="playcard sm" >
             <div class = " playcard-front"><i class="fa-solid fa-${final[i]}"></i></div>
             <div class = " playcard-back">?</div>
         </div>`;
     
-    };
+    };}
+    else{   for(i =0;i<tiles;i++){
+        play.innerHTML += `<div class="playcard " >
+            <div class = " playcard-front"><i class="fa-solid fa-${final[i]}"></i></div>
+            <div class = " playcard-back">?</div>
+        </div>`;
+    
+    };}
+ 
 }
