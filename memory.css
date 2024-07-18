@@ -197,6 +197,7 @@ body{
 .but{
     display: flex;
     align-items: center;
+    font-size:4vmin;
     justify-content: center;
     width: 13vmin;
     height:8vmin;
