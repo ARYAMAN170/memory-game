@@ -13,10 +13,9 @@ body{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 0.5fr;
-    gap:1rem;
-    padding:20px;
-    padding-bottom:10px;
-    border-radius: 15px;
+    gap:2vmin;
+    padding:3vmin;
+    border-radius: 2.5vmin;
     background-color: #594545;
     color:black;
     box-shadow: 5px 5px 10px rgb(0, 0, 0);
@@ -78,26 +77,25 @@ body{
     from {background-color: #dea8a8;color:#dea8a8;}
     to {background-color: rgb(35, 23, 23);color:#dea8a8;}
   }  */
-button{
-    width: 80px;
-    height:40px;
+.but{
+    width: 13vmin;
+    height:5vmin;
     background-color: #583a3a;
     color: #FFF8EA;;
-    border-radius: 50px;
+    border-radius: 100px;
+    margin-top: 3vmin;
     font-weight:bold ;
     justify-self: center;
     align-self: center;
     border: none;
     box-shadow: 3px 3px 10px black;
-    padding: 10px;
-    font-size: 1.1rem;
+    font-size: 2vmin;
     cursor: pointer;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     grid-column: 2;
 }
-button:hover{
-    animation-duration: 50ms;
-    background-color: rgb(35, 23, 23);
+.but:hover{
+    background-color: rgb(79, 42, 42);
 }
 .playground{display: none;
     height:auto;
@@ -105,11 +103,11 @@ button:hover{
     
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
-    gap:1rem;
+    gap:2vmin;
     background-color: #594545;
-    border: solid 2px #594545;
+    border: solid 2vmin #594545;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 1vmin;
     box-shadow: 5px 5px 10px;}
 
 
@@ -147,7 +145,7 @@ button:hover{
     
 }
 .playcard-back{
-    font-size: 10vmin;
+    font-size: 13vmin;
     font-weight: 900;
     transform:rotateY(180deg)
 }
@@ -163,7 +161,19 @@ button:hover{
 .playcard-back {
     transform: none;
 }
-
+.reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vmin;
+    width: 5vmin;
+    border-radius: 50%;
+    border: none;
+    margin-top: 5vmin;
+    font-size: 3vmin;
+    background-color: #583a3a;
+    color: #FFF8EA;
+}
 
 @keyframes glow {
     0% {
@@ -175,4 +185,58 @@ button:hover{
     100% {
         text-shadow: 0 0 10px rgba(255,255,255,1); /* White glow */
     }
+}
+
+
+@media screen and (max-width: 400px) {
+    .card
+{
+    width: 25vmin;
+    height: 25vmin;
+}
+.but{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 13vmin;
+    height:8vmin;
+
+}
+.playcard-front,.playcard-back{
+    display:flex;
+    height:100%;
+    width: 100%;
+    font-size: 12vmin;}
+    .playcard-back{
+        font-size: 20vmin;
+    }
+.playcard
+{
+    width: 19vmin;
+    height: 19vmin;
+    perspective: 1000px;
+    margin:1fr;
+    align-self: center;
+    justify-self: center;
+}
+.reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 50%;
+    border: none;
+    margin-top:15vmin;
+    font-size: 6vmin;
+    background-color: #583a3a;
+    color: #FFF8EA;
+}
+.sm{
+    height:30vmin;
+    width: 30vmin;
+}
+.card-front,.card-back{
+    font-size: 5vmin;
+}
 }
